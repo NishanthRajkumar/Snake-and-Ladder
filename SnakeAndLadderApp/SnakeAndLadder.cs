@@ -39,7 +39,7 @@ internal class SnakeAndLadder
     }
 
     // Rolls die using Random
-    public void RollDie()
+    private void RollDie()
     {
         totalDieRoll++;
         int chkContinue = 0;
