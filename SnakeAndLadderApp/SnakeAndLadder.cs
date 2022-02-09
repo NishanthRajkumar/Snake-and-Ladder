@@ -11,6 +11,7 @@ internal class SnakeAndLadder
     // Game related attributes declared here
     private int position;
     private bool winCheck;
+    private int totalDieRoll;
 
     // Common Random object for the class
     static Random random = new Random();
@@ -20,6 +21,14 @@ internal class SnakeAndLadder
     {
         position = 0;
         winCheck = false;
+        totalDieRoll = 0;
+    }
+
+    public void Reset()
+    {
+        position = 0;
+        winCheck= false;
+        totalDieRoll= 0;
     }
 
     // Describes the players status in the game
@@ -31,6 +40,7 @@ internal class SnakeAndLadder
     // Rolls die using Random
     public void RollDie()
     {
+        totalDieRoll++;         // Increment totalDieRoll every RollDie is called
         int chkContinue = 0;
         int roll = random.Next(1,7);
         Console.WriteLine("\nRolled: " + roll);
@@ -115,5 +125,6 @@ internal class SnakeAndLadder
         while (winCheck is false)
             RollDie();
         Console.WriteLine("\nCongratulations!! You Won!!");
+        Console.WriteLine("Die was rolled " + totalDieRoll + " times");
     }
 }
